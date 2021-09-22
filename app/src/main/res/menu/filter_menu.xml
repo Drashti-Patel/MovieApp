@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/released_last_week"
+        android:title="@string/filter_released_last_week" />
+
+    <item
+        android:id="@+id/released_this_week"
+        android:title="@string/filter_released_this_week" />
+
+    <item
+        android:id="@+id/releasing_next_week"
+        android:title="@string/filter_releasing_next_week" />
+
+    <item
+        android:id="@+id/release_this_month"
+        android:title="@string/filter_release_this_month" />
+
+</menu>

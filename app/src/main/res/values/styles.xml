@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ProgressBarStyle">
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+        <item name="android:minHeight">20dip</item>
+        <item name="android:maxHeight">30dip</item>
+    </style>
+</resources>

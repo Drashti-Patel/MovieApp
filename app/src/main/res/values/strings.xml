@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MarvelMovie</string>
+
+    <string name="title_characters">Characters</string>
+    <string name="title_comics">Comics</string>
+    <string name="error_unspecified">Unspecified error occurred</string>
+    <string name="no_characters_found">No data found</string>
+    <string name="no_comics_found">No comic found</string>
+    <string name="search_character_hint">Search characters</string>
+    <string name="search_keyword_error">Wrong search</string>
+    <string name="filter_released_this_week">Released this week</string>
+    <string name="filter_released_last_week">Released last week</string>
+    <string name="filter_releasing_next_week">Releasing next week</string>
+    <string name="filter_release_this_month">Release this month</string>
+</resources>

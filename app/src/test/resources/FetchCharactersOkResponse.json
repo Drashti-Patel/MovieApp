@@ -1,0 +1,96 @@
+[
+{
+    "id": 1011334,
+    "name": "Abya",
+    "description": "",
+    "modified": "2014-04-29T14:18:17-0400",
+    "thumbnail": {
+    "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
+    "extension": "jpg"
+},
+    "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011334",
+    "comics": {
+    "available": 12,
+    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/comics",
+    "items": [
+    {
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/21366",
+        "name": "Avengers: The Initiative (2007) #14"
+    },
+    {
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/24571",
+        "name": "Avengers: The Initiative (2007) #14 (SPOTLIGHT VARIANT)"
+    },
+    {
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/21546",
+        "name": "Avengers: The Initiative (2007) #15"
+    }
+    ],
+    "returned": 12
+},
+    "series":{},
+    "stories":{},
+    "events":{},
+    "urls":[]
+},
+{
+    "id":1009149,
+    "name":"Abyss",
+    "description":"",
+    "modified":"2014-04-29T14:10:43-0400",
+    "thumbnail":{
+    "path":"http://i.annihil.us/u/prod/marvel/i/mg/9/30/535feab462a64",
+    "extension":"jpg"
+},
+    "resourceURI":"http://gateway.marvel.com/v1/public/characters/1009149",
+    "comics":{
+    "available":8,
+    "collectionURI":"http://gateway.marvel.com/v1/public/characters/1009149/comics",
+    "items":[
+    {
+        "resourceURI":"http://gateway.marvel.com/v1/public/comics/13943",
+        "name":"Uncanny X-Men (1963) #402"
+    }
+    ],
+    "returned":8
+},
+    "series":{},
+    "stories":{},
+    "events":{},
+    "urls":[]
+},
+{
+    "id":1010903,
+    "name":"Abyss (Age of Apocalypse)",
+    "description":"",
+    "modified":"1969-12-31T19:00:00-0500",
+    "thumbnail":{
+    "path":"http://i.annihil.us/u/prod/marvel/i/mg/3/80/4c00358ec7548",
+    "extension":"jpg"
+},
+    "resourceURI":"http://gateway.marvel.com/v1/public/characters/1010903",
+    "comics":{
+    "available":3,
+    "collectionURI":"http://gateway.marvel.com/v1/public/characters/1010903/comics",
+    "items":[
+    {
+        "resourceURI":"http://gateway.marvel.com/v1/public/comics/18099",
+        "name":"Weapon X (1995) #1"
+    },
+    {
+        "resourceURI":"http://gateway.marvel.com/v1/public/comics/12386",
+        "name":"X-Men: Alpha (1995) #1"
+    },
+    {
+        "resourceURI":"http://gateway.marvel.com/v1/public/comics/2539",
+        "name":"X-Men: The Complete Age of Apocalypse Epic Book 2 (Trade Paperback)"
+    }
+    ],
+    "returned":3
+},
+    "series":{},
+    "stories":{},
+    "events":{},
+    "urls":[]
+}
+]

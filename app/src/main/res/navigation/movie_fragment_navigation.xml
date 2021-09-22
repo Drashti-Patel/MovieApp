@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_characters">
+
+    <fragment
+        android:id="@+id/navigation_characters"
+        android:name="com.movie.marvel.movies.characters.CharactersListFragment"
+        android:label="@string/title_characters"
+        tools:layout="@layout/fragment_movie_list" />
+
+    <fragment
+        android:id="@+id/navigation_comics"
+        android:name="com.movie.marvel.movies.comics.ComicsListFragment"
+        android:label="@string/title_comics"
+        tools:layout="@layout/fragment_movie_list" />
+
+</navigation>
