@@ -1,16 +1,22 @@
 package com.movie.marvel.movies.model
 
-data class Movies(
-    val id: Int,
-    val thumbnail: Thumbnail,
-    val name: String? = null,
-    val title: String? = null
-)
+import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
+data class Movies(
+        @SerializedName("id") val id: Int,
+        @SerializedName("thumbnail") val thumbnail: Thumbnail,
+        @SerializedName("name") val name: String? = null,
+        @SerializedName("title") val title: String? = null
+): Parcelable
+
+@Parcelize
 data class Thumbnail(
-    val path: String,
-    val extension: String
-) {
+        @SerializedName("path") val path: String,
+        @SerializedName("extension") val extension: String
+): Parcelable {
     fun getUrl() = "$path.$extension".replace("http://", "https://")
 }
 
