@@ -6,17 +6,17 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Movies(
-        @SerializedName("id") val id: Int,
-        @SerializedName("thumbnail") val thumbnail: Thumbnail,
-        @SerializedName("name") val name: String? = null,
-        @SerializedName("title") val title: String? = null
-): Parcelable
+    @SerializedName("id") val id: Int,
+    @SerializedName("thumbnail") val thumbnail: Thumbnail,
+    @SerializedName("name") val name: String? = null,
+    @SerializedName("title") val title: String? = null
+) : Parcelable
 
 @Parcelize
 data class Thumbnail(
-        @SerializedName("path") val path: String,
-        @SerializedName("extension") val extension: String
-): Parcelable {
+    @SerializedName("path") val path: String,
+    @SerializedName("extension") val extension: String
+) : Parcelable {
     fun getUrl() = "$path.$extension".replace("http://", "https://")
 }
 

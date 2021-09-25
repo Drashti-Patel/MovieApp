@@ -3,7 +3,7 @@ package com.movie.marvel.movies.comics
 import android.os.Bundle
 import android.view.*
 import androidx.core.view.isVisible
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
@@ -18,11 +18,15 @@ import com.movie.marvel.movies.ListItemViewHolder
 import com.movie.marvel.movies.model.FilterComicsByDate
 import com.movie.marvel.movies.model.Movies
 import com.movie.marvel.utils.*
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@ExperimentalCoroutinesApi
+@AndroidEntryPoint
 class ComicsListFragment :
     BaseFragment<FragmentMovieListBinding>(FragmentMovieListBinding::inflate) {
 
-    private val comicListViewModel: ComicListViewModel by viewModels { ComicViewModelFactory() }
+    lateinit var comicListViewModel: ComicListViewModel
     private lateinit var comicListAdapter: GenericViewBindingAdapter<Movies>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +36,8 @@ class ComicsListFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        comicListViewModel =
+            ViewModelProvider(requireActivity()).get(ComicListViewModel::class.java)
         setupComicList()
         comicListViewModel.fetchComics()
         observeComicList()

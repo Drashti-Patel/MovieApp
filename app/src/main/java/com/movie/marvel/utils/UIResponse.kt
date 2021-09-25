@@ -9,5 +9,4 @@ sealed class UIResponse<out T> {
 
     val isLoading: Boolean
         get() = this is Loading
-
 }

@@ -1,5 +1,6 @@
 package com.movie.marvel.movies.comics
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
@@ -8,8 +9,11 @@ import com.movie.marvel.movies.MovieListRepository
 import com.movie.marvel.movies.model.FilterComicsByDate
 import com.movie.marvel.movies.model.Movies
 import com.movie.marvel.utils.*
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-class ComicListViewModel(private val movieListRepo: MovieListRepository) : ViewModel() {
+@ExperimentalCoroutinesApi
+class ComicListViewModel @ViewModelInject constructor(private val movieListRepo: MovieListRepository) :
+    ViewModel() {
 
     var comicListData: MediatorLiveData<UIResponse<List<Movies>>> = MediatorLiveData()
     private var comicArrayList = arrayListOf<Movies>()
@@ -17,19 +21,19 @@ class ComicListViewModel(private val movieListRepo: MovieListRepository) : ViewM
     private var lastPage = 0
     private var selectedFilter: String? = null
 
-    fun fetchComics(){
+    fun fetchComics() {
         getComics()
     }
 
     private fun getComics(filterByDate: String? = null): MediatorLiveData<UIResponse<List<Movies>>> {
         comicListData.value = UIResponse.Loading
-        if(filterByDate != null) {
+        if (filterByDate != null) {
             currentPage = 0
             selectedFilter = filterByDate
             comicArrayList.clear()
         }
         comicListData.addSource(
-            movieListRepo.getComics(currentPage,selectedFilter).asLiveData()
+            movieListRepo.getComics(currentPage, selectedFilter).asLiveData()
         ) { response ->
 
             if (response.code != 200) {
@@ -61,8 +65,8 @@ class ComicListViewModel(private val movieListRepo: MovieListRepository) : ViewM
         return currentPage == lastPage
     }
 
-    fun filterComicsBy(filterByDate : FilterComicsByDate) {
-        when(filterByDate){
+    fun filterComicsBy(filterByDate: FilterComicsByDate) {
+        when (filterByDate) {
             FilterComicsByDate.LAST_WEEK -> getComics(STR_LAST_WEEK)
             FilterComicsByDate.THIS_WEEK -> getComics(STR_THIS_WEEK)
             FilterComicsByDate.NEXT_WEEK -> getComics(STR_NEXT_WEEK)

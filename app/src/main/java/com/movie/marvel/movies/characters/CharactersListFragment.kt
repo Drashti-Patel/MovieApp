@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
@@ -20,15 +20,21 @@ import com.movie.marvel.databinding.MovieListItemBinding
 import com.movie.marvel.movies.ListItemViewHolder
 import com.movie.marvel.movies.model.Movies
 import com.movie.marvel.utils.*
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@ExperimentalCoroutinesApi
+@AndroidEntryPoint
 class CharactersListFragment :
     BaseFragment<FragmentMovieListBinding>(FragmentMovieListBinding::inflate) {
 
     private lateinit var characterListAdapter: GenericViewBindingAdapter<Movies>
-    private val movieListViewModel: CharacterListViewModel by viewModels { CharacterViewModelFactory() }
+    lateinit var movieListViewModel: CharacterListViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        movieListViewModel =
+            ViewModelProvider(requireActivity()).get(CharacterListViewModel::class.java)
         setupCharacterList()
         movieListViewModel.getCharacters()
         observeCharacterList()
