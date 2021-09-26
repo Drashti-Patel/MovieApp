@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.movie.marvel.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,8 +31,7 @@ class MainActivity : AppCompatActivity() {
             )
         )
         navController.setGraph(R.navigation.movie_fragment_navigation)
-
-        setupActionBarWithNavController(navController, appBarConfiguration)
         binding.navView.setupWithNavController(navController)
     }
+
 }

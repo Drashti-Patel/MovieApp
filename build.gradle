@@ -4,8 +4,9 @@ buildscript {
         kotlin_version = '1.4.31'
         androidxLifecycleVersion = '2.2.0'
         androidxNavigationVersion = '2.3.5'
-        ktorVersion = '1.5.2'
-        ext.hilt_version = "2.28-alpha"
+        retrofitVersion = '2.9.0'
+        hilt_version = "2.28-alpha"
+        hilt_view_models_version = "1.0.0-alpha02"
     }
     repositories {
         google()

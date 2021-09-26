@@ -5,20 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.movie.marvel.R
-import com.movie.marvel.application.MovieApplication
 import com.movie.marvel.base.BaseFragment
 import com.movie.marvel.base.GenericViewBindingAdapter
 import com.movie.marvel.base.PaginationListener
 import com.movie.marvel.databinding.FragmentMovieListBinding
 import com.movie.marvel.databinding.MovieListItemBinding
-import com.movie.marvel.movies.ListItemViewHolder
 import com.movie.marvel.movies.model.Movies
+import androidx.navigation.fragment.findNavController
 import com.movie.marvel.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -30,11 +31,12 @@ class CharactersListFragment :
 
     private lateinit var characterListAdapter: GenericViewBindingAdapter<Movies>
     lateinit var movieListViewModel: CharacterListViewModel
+    private lateinit var navController: NavController
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        movieListViewModel =
-            ViewModelProvider(requireActivity()).get(CharacterListViewModel::class.java)
+        navController = findNavController()
+        movieListViewModel = ViewModelProvider(requireActivity()).get(CharacterListViewModel::class.java)
         setupCharacterList()
         movieListViewModel.getCharacters()
         observeCharacterList()
@@ -54,7 +56,16 @@ class CharactersListFragment :
 
             override fun getViewHolder(binding: ViewBinding): RecyclerView.ViewHolder {
                 return when (binding) {
-                    is MovieListItemBinding -> ListItemViewHolder(binding)
+                    is MovieListItemBinding -> CharacterListItemViewHolder(
+                        binding,
+                        onItemClick = {
+                            navController.navigate(
+                                R.id.navigation_character_detail,
+                                bundleOf(
+                                    MOVIE_DATA to it
+                                )
+                            )
+                        })
                     else -> throw IllegalArgumentException("Unknown ViewBinding")
                 }
             }
@@ -62,7 +73,7 @@ class CharactersListFragment :
 
         binding.movieListRv.apply {
 
-            layoutManager = GridLayoutManager(MovieApplication.getContext(), 2)
+            layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = characterListAdapter
 
             addOnScrollListener(object :
@@ -133,4 +144,5 @@ class CharactersListFragment :
     private fun onError(response: UIResponse.Error) {
         showError(response.error.status ?: getString(R.string.error_unspecified))
     }
+
 }

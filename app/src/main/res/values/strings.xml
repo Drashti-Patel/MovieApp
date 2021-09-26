@@ -3,6 +3,7 @@
 
     <string name="title_characters">Characters</string>
     <string name="title_comics">Comics</string>
+    <string name="title_character_detail">Details</string>
     <string name="error_unspecified">Unspecified error occurred</string>
     <string name="no_characters_found">No data found</string>
     <string name="no_comics_found">No comic found</string>

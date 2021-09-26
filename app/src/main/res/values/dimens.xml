@@ -24,5 +24,6 @@
 
     <!--  These dimensions are tailored to look good on TC51. Later, for other form factors, different dimens can be provided  -->
     <dimen name="card_view_height">150dp</dimen>
-
+    <dimen name="card_corner_radius">5dp</dimen>
+    <dimen name="card_elevation">5dp</dimen>
 </resources>

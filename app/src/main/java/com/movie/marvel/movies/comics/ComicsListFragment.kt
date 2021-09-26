@@ -8,13 +8,11 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.movie.marvel.R
-import com.movie.marvel.application.MovieApplication
 import com.movie.marvel.base.BaseFragment
 import com.movie.marvel.base.GenericViewBindingAdapter
 import com.movie.marvel.base.PaginationListener
 import com.movie.marvel.databinding.FragmentMovieListBinding
 import com.movie.marvel.databinding.MovieListItemBinding
-import com.movie.marvel.movies.ListItemViewHolder
 import com.movie.marvel.movies.model.FilterComicsByDate
 import com.movie.marvel.movies.model.Movies
 import com.movie.marvel.utils.*
@@ -51,7 +49,7 @@ class ComicsListFragment :
 
             override fun getViewHolder(binding: ViewBinding): RecyclerView.ViewHolder {
                 return when (binding) {
-                    is MovieListItemBinding -> ListItemViewHolder(binding)
+                    is MovieListItemBinding -> ComicListItemViewHolder(binding)
                     else -> throw IllegalArgumentException("Unknown ViewBinding")
                 }
             }
@@ -65,7 +63,7 @@ class ComicsListFragment :
 
         binding.movieListRv.apply {
 
-            layoutManager = GridLayoutManager(MovieApplication.getContext(), 2)
+            layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = comicListAdapter
 
             addOnScrollListener(object :

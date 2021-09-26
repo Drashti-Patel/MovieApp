@@ -8,13 +8,30 @@
     <fragment
         android:id="@+id/navigation_characters"
         android:name="com.movie.marvel.movies.characters.CharactersListFragment"
-        android:label="@string/title_characters"
-        tools:layout="@layout/fragment_movie_list" />
+        tools:layout="@layout/fragment_movie_list" >
+        <action
+            android:id="@+id/action_characters_to_navigation_character_detail"
+            app:destination="@id/navigation_character_detail"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+        />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_comics"
         android:name="com.movie.marvel.movies.comics.ComicsListFragment"
-        android:label="@string/title_comics"
         tools:layout="@layout/fragment_movie_list" />
 
+        <fragment
+            android:id="@+id/navigation_character_detail"
+            android:name="com.movie.marvel.movies.characters.CharacterDetailFragment"
+            tools:layout="@layout/fragment_character_detail">
+            <argument
+                android:name="movieDetail"
+                app:argType="com.movie.marvel.movies.model.Movies" />
+        </fragment>
+
 </navigation>
+

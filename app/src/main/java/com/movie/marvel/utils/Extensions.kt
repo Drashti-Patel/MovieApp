@@ -15,6 +15,8 @@ const val STR_LAST_WEEK = "lastWeek"
 const val STR_THIS_WEEK = "thisWeek"
 const val STR_NEXT_WEEK = "nextWeek"
 const val STR_THIS_MONTH = "thisMonth"
+const val MOVIE_DATA = "movieDetail"
+const val DEFAULT_TITLE = "marvel character"
 
 fun String.md5(): String {
     val md = MessageDigest.getInstance("MD5")

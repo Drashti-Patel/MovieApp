@@ -8,8 +8,9 @@ import kotlinx.parcelize.Parcelize
 data class Movies(
     @SerializedName("id") val id: Int,
     @SerializedName("thumbnail") val thumbnail: Thumbnail,
-    @SerializedName("name") val name: String? = null,
-    @SerializedName("title") val title: String? = null
+    @SerializedName("name") val name: String?,
+    @SerializedName("description") val description: String?,
+    @SerializedName("title") val title: String?
 ) : Parcelable
 
 @Parcelize
